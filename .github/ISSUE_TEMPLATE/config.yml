@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/victor-914/shipnotes/security/advisories/new
+    about: Please report security problems privately, not as issues.
+  - name: Something not working in your setup?
+    url: https://github.com/victor-914/shipnotes/blob/main/docs/troubleshooting.md
+    about: Common problems and fixes.

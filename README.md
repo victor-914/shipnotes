@@ -8,6 +8,11 @@ You build things. Keeping a blog or social presence going takes time away from b
 
 ## How it works
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.svg">
+  <img alt="shipnotes architecture: your projects publish an Outcome Snapshot and commits; shipnotes in GitHub Actions collects them, finds what moved, turns public metrics into facts, asks Claude Code for words, and fact-checks every number; it opens a Post ideas Issue and draft pull requests in your content repo; when you merge, the post moves to published/ and goes to your site and channels." src="docs/images/architecture-light.svg" width="100%">
+</picture>
+
 Everything happens in one GitHub repo of yours (made from [`template/`](template)):
 
 ```
@@ -39,6 +44,7 @@ Edit drafts wherever you like: on GitHub, locally, or in Claude at claude.ai/cod
 
 1. **Publish an Outcome Snapshot** for each project: see [SPEC.md](SPEC.md) and [examples/outcomes.json](examples/outcomes.json). Validate it with `npx shipnotes validate outcomes.json`.
 2. **Create your content repo** from [`template/`](template), and follow its README (config, voice, one secret).
+   Or use the action directly in your own workflow: `uses: victor-914/shipnotes@v0` ([action reference](docs/action.md)).
 3. **Try it locally first**, if you like. shipnotes uses your installed, logged-in [Claude Code](https://docs.claude.com/en/docs/claude-code):
 
    ```sh
@@ -73,6 +79,20 @@ shipnotes never asks for or stores your credentials. It runs your own Claude Cod
 ## Exit codes
 
 `0` ok, or nothing worth writing · `1` error · `2` fact-check failed
+
+## Docs
+
+| | |
+|---|---|
+| [How it works](docs/how-it-works.md) | The pipeline, what the model sees, how stories are ranked |
+| [Config reference](docs/config.md) | Every option in `shipnotes.config.yaml`, publishers, the `http` payload |
+| [Drafts and the fact-check](docs/drafts.md) | The draft file format and exactly which numbers pass |
+| [GitHub Action](docs/action.md) | Inputs, events, permissions, pinning |
+| [Publishing a snapshot](docs/publishing-outcomes.md) | Producing `outcomes.json` from your app or CI |
+| [Troubleshooting](docs/troubleshooting.md) | Common problems and fixes |
+| [Outcome Snapshot spec](SPEC.md) | The `outcomes/0.1` format |
+
+Contributing: [CONTRIBUTING.md](CONTRIBUTING.md) · Security: [SECURITY.md](SECURITY.md) · Changes: [CHANGELOG.md](CHANGELOG.md)
 
 ## Status
 

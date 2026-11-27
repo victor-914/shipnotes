@@ -18,7 +18,7 @@ const USAGE = `shipnotes — turn your projects' outcomes into blog drafts you a
 Usage:
   shipnotes run      [--config shipnotes.config.yaml] [--dry-run]   one-shot: draft and save locally
   shipnotes topics   [--config …]                                   print this period's topic ideas
-  shipnotes check    <draft.md>…                                    fact-check draft files
+  shipnotes check    [--strict] <draft.md>…                         fact-check draft files (--strict: no free 0–10)
   shipnotes validate <outcomes.json>                                validate an Outcome Snapshot
   shipnotes event    [--config …]                                   handle the current GitHub Actions event
 

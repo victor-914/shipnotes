@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 510" width="1120" height="510" role="img" aria-labelledby="title desc">
+<title id="title">shipnotes architecture</title>
+<desc id="desc">Your projects publish an Outcome Snapshot and commits. shipnotes, running in GitHub Actions, collects them, finds which public metrics moved, turns them into facts, asks Claude Code for topics and drafts, and fact-checks every number. It opens a Post ideas Issue and draft pull requests in your content repo. When you merge, the post moves to published/ and goes to your site and channels.</desc>
+<style>
+  text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .bg { fill: #0d1117; }
+  .g { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+  .gl { fill: #9198a1; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+  .box { fill: #0d1117; stroke: #6e7681; stroke-width: 1.2; }
+  .claude { fill: #33201a; stroke: #e08a63; stroke-width: 1.5; }
+  .check { fill: #0f2d1a; stroke: #3fb950; stroke-width: 1.5; }
+  .you { fill: #0c2d4f; stroke: #4493f8; stroke-width: 1.3; stroke-dasharray: 5 4; }
+  .t { fill: #e6edf3; font-size: 14px; font-weight: 600; }
+  .s { fill: #9198a1; font-size: 11.5px; }
+  .l { fill: #9198a1; font-size: 11px; }
+  .a { fill: none; stroke: #8b949e; stroke-width: 1.4; }
+  .ah { fill: #8b949e; }
+</style>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+<rect class="bg" width="1120" height="510"/>
+<rect class="g" x="20" y="40" width="180" height="300" rx="12"/>
+<text class="gl" x="36" y="64">YOUR PROJECTS</text>
+<rect class="box" x="36" y="84" width="148" height="70" rx="8"/>
+<text class="t" x="110" y="109" text-anchor="middle">Outcome Snapshot</text>
+<text class="s" x="110" y="125" text-anchor="middle">outcomes.json</text>
+<text class="s" x="110" y="140" text-anchor="middle">totals only</text>
+<rect class="box" x="36" y="184" width="148" height="70" rx="8"/>
+<text class="t" x="110" y="209" text-anchor="middle">Project repos</text>
+<text class="s" x="110" y="225" text-anchor="middle">commits become</text>
+<text class="s" x="110" y="240" text-anchor="middle">“shipped” items</text>
+<text class="l" x="110" y="292" text-anchor="middle">Private metrics</text>
+<text class="l" x="110" y="308" text-anchor="middle">never leave here</text>
+<rect class="g" x="230" y="40" width="520" height="300" rx="12"/>
+<text class="gl" x="246" y="64">SHIPNOTES · IN YOUR GITHUB ACTIONS</text>
+<rect class="box" x="250" y="84" width="110" height="70" rx="8"/>
+<text class="t" x="305" y="116.5" text-anchor="middle">Collect</text>
+<text class="s" x="305" y="132.5" text-anchor="middle">fetch + validate</text>
+<rect class="box" x="378" y="84" width="110" height="70" rx="8"/>
+<text class="t" x="433" y="109" text-anchor="middle">Find stories</text>
+<text class="s" x="433" y="125" text-anchor="middle">what moved,</text>
+<text class="s" x="433" y="140" text-anchor="middle">ranked</text>
+<rect class="box" x="506" y="84" width="110" height="70" rx="8"/>
+<text class="t" x="561" y="109" text-anchor="middle">Facts</text>
+<text class="s" x="561" y="125" text-anchor="middle">public metrics</text>
+<text class="s" x="561" y="140" text-anchor="middle">only</text>
+<rect class="check" x="634" y="84" width="100" height="70" rx="8"/>
+<text class="t" x="684" y="109" text-anchor="middle">Fact-check</text>
+<text class="s" x="684" y="125" text-anchor="middle">every number</text>
+<text class="s" x="684" y="140" text-anchor="middle">from facts</text>
+<rect class="claude" x="378" y="200" width="238" height="90" rx="8"/>
+<text class="t" x="497" y="227.5" text-anchor="middle">Claude Code</text>
+<text class="s" x="497" y="243.5" text-anchor="middle">topics · drafts · rewrites</text>
+<text class="s" x="497" y="258.5" text-anchor="middle">channel versions</text>
+<text class="s" x="497" y="273.5" text-anchor="middle">no tools · no secrets</text>
+<path class="a" d="M184 119 H246" marker-end="url(#ah)"/>
+<path class="a" d="M184 219 H215 V140 H246" marker-end="url(#ah)"/>
+<path class="a" d="M360 119 H374" marker-end="url(#ah)"/>
+<path class="a" d="M488 119 H502" marker-end="url(#ah)"/>
+<path class="a" d="M561 154 V196" marker-end="url(#ah)"/>
+<text class="l" x="569" y="182" text-anchor="start">facts</text>
+<path class="a" d="M616 245 H684 V158" marker-end="url(#ah)"/>
+<text class="l" x="624" y="238" text-anchor="start">words</text>
+<rect class="g" x="780" y="40" width="200" height="300" rx="12"/>
+<text class="gl" x="796" y="64">YOUR CONTENT REPO</text>
+<rect class="box" x="796" y="84" width="168" height="60" rx="8"/>
+<text class="t" x="880" y="111.5" text-anchor="middle">Post ideas Issue</text>
+<text class="s" x="880" y="127.5" text-anchor="middle">weekly topics</text>
+<rect class="box" x="796" y="172" width="168" height="60" rx="8"/>
+<text class="t" x="880" y="199.5" text-anchor="middle">Draft pull request</text>
+<text class="s" x="880" y="215.5" text-anchor="middle">drafts/*.md · status</text>
+<rect class="box" x="796" y="260" width="168" height="60" rx="8"/>
+<text class="t" x="880" y="287.5" text-anchor="middle">published/</text>
+<text class="s" x="880" y="303.5" text-anchor="middle">approved posts</text>
+<path class="a" d="M734 119 H792" marker-end="url(#ah)"/>
+<path class="a" d="M760 119 V202 H792" marker-end="url(#ah)"/>
+<text class="l" x="747" y="76" text-anchor="middle">GitHub API</text>
+<path class="a" d="M880 144 V168" marker-end="url(#ah)"/>
+<text class="l" x="888" y="161" text-anchor="start">pick a topic</text>
+<path class="a" d="M880 232 V256" marker-end="url(#ah)"/>
+<text class="l" x="888" y="249" text-anchor="start">you merge</text>
+<text class="gl" x="1054" y="160" text-anchor="middle">AFTER MERGE</text>
+<rect class="box" x="1004" y="172" width="100" height="60" rx="8"/>
+<text class="t" x="1054" y="199.5" text-anchor="middle">Your site</text>
+<text class="s" x="1054" y="215.5" text-anchor="middle">http publisher</text>
+<rect class="box" x="1004" y="260" width="100" height="60" rx="8"/>
+<text class="t" x="1054" y="280" text-anchor="middle">Channels</text>
+<text class="s" x="1054" y="296" text-anchor="middle">LinkedIn ·</text>
+<text class="s" x="1054" y="311" text-anchor="middle">Substack text</text>
+<path class="a" d="M964 290 H1000" marker-end="url(#ah)"/>
+<path class="a" d="M984 290 V202 H1000" marker-end="url(#ah)"/>
+<text class="gl" x="20" y="374">YOU</text>
+<rect class="you" x="36" y="384" width="148" height="64" rx="8"/>
+<text class="t" x="110" y="413.5" text-anchor="middle">Publish a snapshot</text>
+<text class="s" x="110" y="429.5" text-anchor="middle">for each project</text>
+<rect class="you" x="378" y="384" width="238" height="64" rx="8"/>
+<text class="t" x="497" y="413.5" text-anchor="middle">Set up once</text>
+<text class="s" x="497" y="429.5" text-anchor="middle">config · VOICE.md · Claude token</text>
+<rect class="you" x="796" y="384" width="168" height="64" rx="8"/>
+<text class="t" x="880" y="406" text-anchor="middle">Review</text>
+<text class="s" x="880" y="422" text-anchor="middle">tick, edit, /shipnotes</text>
+<text class="s" x="880" y="437" text-anchor="middle">rewrite, merge</text>
+<path class="a" d="M110 384 V344" marker-end="url(#ah)"/>
+<path class="a" d="M497 384 V344" marker-end="url(#ah)"/>
+<path class="a" d="M880 384 V344" marker-end="url(#ah)"/>
+<rect class="box" x="20" y="478" width="18" height="14" rx="3"/>
+<text class="l" x="46" y="489" text-anchor="start">plain code</text>
+<rect class="claude" x="140" y="478" width="18" height="14" rx="3"/>
+<text class="l" x="166" y="489" text-anchor="start">Claude: writes words, never numbers</text>
+<rect class="check" x="390" y="478" width="18" height="14" rx="3"/>
+<text class="l" x="416" y="489" text-anchor="start">gate: blocks unverified numbers</text>
+<rect class="you" x="630" y="478" width="18" height="14" rx="3"/>
+<text class="l" x="656" y="489" text-anchor="start">you: nothing is published until you merge</text>
+</svg>
