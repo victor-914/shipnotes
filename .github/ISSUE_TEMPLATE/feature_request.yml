@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest an improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do, and what gets in the way today?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you'd like
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Trust rules
+      description: shipnotes won't take features that weaken these.
+      options:
+        - label: This keeps "no made-up numbers", "private by default" and "nothing published without a merge".
+          required: true

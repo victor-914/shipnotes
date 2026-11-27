@@ -1,0 +1,53 @@
+name: Bug report
+description: Something shipnotes did wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Security problem? Don't file it here. See SECURITY.md (Security → Report a vulnerability).
+        Please remove secrets, private metrics and personal data from anything you paste.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - GitHub Action (content repo workflow)
+        - CLI (run / topics)
+        - CLI (check / validate)
+        - Fact-check result
+        - Template / Claude skill
+        - Docs
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The command or event, and a minimal config, snapshot or draft that shows it.
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output
+      description: The `shipnotes:` lines from the terminal or the Actions log.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: shipnotes version or action ref
+      placeholder: "0.2.0, or victor-914/shipnotes@v0"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Node and Claude Code versions
+      placeholder: "node 22.11, claude 2.x"

@@ -1,0 +1,31 @@
+name: Source or publisher request
+description: Read outcomes from, or publish to, a new service
+labels: [integration]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Source (where numbers or shipped items come from)
+        - Publisher (where approved posts go)
+    validations:
+      required: true
+  - type: input
+    id: service
+    attributes:
+      label: Service
+      placeholder: "Plausible, PostHog, Dev.to, Ghost…"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: For a source, which metrics you'd want and how its API exposes totals. For a publisher, how posts are created (API, draft support, auth).
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Help
+      options:
+        - label: I'd like to build this myself (see CONTRIBUTING.md → Adding a source / publisher).
