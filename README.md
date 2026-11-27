@@ -2,16 +2,16 @@
 
 **Turn your projects' real outcomes into blog drafts you review as pull requests. No made-up numbers.**
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.svg">
+  <img alt="shipnotes architecture: your projects publish an Outcome Snapshot and commits; shipnotes in GitHub Actions collects them, finds what moved, turns public metrics into facts, asks Claude Code for words, and fact-checks every number; it opens a Post ideas Issue and draft pull requests in your content repo; when you merge, the post moves to published/ and goes to your site and channels." src="docs/images/architecture-light.svg" width="100%">
+</picture>
+
 You build things. Keeping a blog or social presence going takes time away from building, so most builders go quiet and their best work stays invisible. shipnotes reads what your projects actually achieved, suggests what's worth writing about, and drafts it. You review it like code: edit, comment, merge.
 
 > AI levelled the playing field. What matters now is outcomes. — *The Era of Builders*
 
 ## How it works
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.svg">
-  <img alt="shipnotes architecture: your projects publish an Outcome Snapshot and commits; shipnotes in GitHub Actions collects them, finds what moved, turns public metrics into facts, asks Claude Code for words, and fact-checks every number; it opens a Post ideas Issue and draft pull requests in your content repo; when you merge, the post moves to published/ and goes to your site and channels." src="docs/images/architecture-light.svg" width="100%">
-</picture>
 
 Everything happens in one GitHub repo of yours (made from [`template/`](template)):
 
