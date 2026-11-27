@@ -1,0 +1,21 @@
+{
+  "$schema": "../schema/outcomes.schema.json",
+  "spec": "outcomes/0.1",
+  "project": {
+    "name": "Casmir Realty",
+    "slug": "casmir-realty",
+    "url": "https://casmirshortlets.com",
+    "description": "Verified shortlet homes in Nigeria"
+  },
+  "period": { "from": "2026-11-03", "to": "2026-11-10" },
+  "north_star": "paid_bookings",
+  "metrics": [
+    { "name": "lighthouse_performance", "label": "Homepage Lighthouse performance score", "value": 73, "previous": 53, "unit": "score", "public": true },
+    { "name": "lcp_seconds", "label": "Homepage largest contentful paint", "value": 2.7, "previous": 6.3, "unit": "seconds", "better": "lower", "public": true },
+    { "name": "paid_bookings", "label": "Paid bookings", "value": 0, "previous": 0, "unit": "count", "public": false }
+  ],
+  "shipped": [
+    { "title": "Speed up the homepage: smaller images, fonts and JS", "date": "2026-11-09" },
+    { "title": "One-page guest site with city tabs and search filters", "date": "2026-11-05" }
+  ]
+}

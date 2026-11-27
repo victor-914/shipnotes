@@ -1,0 +1,63 @@
+name: shipnotes
+description: Turn your projects' real outcomes into blog drafts you review as pull requests. No made-up numbers.
+author: victor-914
+branding:
+  icon: edit-3
+  color: gray-dark
+
+inputs:
+  command:
+    description: "`event` (default) handles the current GitHub event. Also: `run`, `check`."
+    default: event
+  config:
+    description: Path to shipnotes.config.yaml, relative to the repository root.
+    default: shipnotes.config.yaml
+  files:
+    description: For `check`, the draft files to check (space-separated).
+    default: ""
+  claude-code-oauth-token:
+    description: Token from `claude setup-token`, so your Claude subscription covers the writing. Pass it from a secret.
+    required: false
+  anthropic-api-key:
+    description: Alternative to the OAuth token. Pass it from a secret.
+    required: false
+  read-token:
+    description: Token that can read your project repos' commits (a fine-grained PAT) when they are private.
+    required: false
+  claude-code-version:
+    description: Version of @anthropic-ai/claude-code to install.
+    default: latest
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    # Fact-checking and publishing don't use Claude, so pull request events skip the install.
+    - name: Install Claude Code
+      if: github.event_name != 'pull_request' && inputs.command != 'check'
+      shell: bash
+      run: npm install -g "@anthropic-ai/claude-code@${{ inputs.claude-code-version }}"
+
+    - name: Build shipnotes
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: npm ci --no-audit --no-fund && npm run build
+
+    - name: Run shipnotes
+      shell: bash
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN: ${{ inputs.claude-code-oauth-token }}
+        ANTHROPIC_API_KEY: ${{ inputs.anthropic-api-key }}
+        SHIPNOTES_READ_TOKEN: ${{ inputs.read-token }}
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        cli="${{ github.action_path }}/dist/cli.js"
+        case "${{ inputs.command }}" in
+          event) node "$cli" event --config "${{ inputs.config }}" ;;
+          run)   node "$cli" run --config "${{ inputs.config }}" ;;
+          check) node "$cli" check ${{ inputs.files }} ;;
+          *) echo "Unknown command: ${{ inputs.command }}"; exit 1 ;;
+        esac

@@ -1,0 +1,48 @@
+{
+  "name": "shipnotes",
+  "version": "0.2.0",
+  "description": "Turn your projects' real outcomes into blog drafts you review as pull requests. No made-up numbers.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "shipnotes": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "SPEC.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "schema": "tsx scripts/gen-schema.ts",
+    "dev": "tsx src/cli.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victor-914/shipnotes.git"
+  },
+  "keywords": [
+    "build-in-public",
+    "blog",
+    "metrics",
+    "outcomes",
+    "ai-agent",
+    "github-action",
+    "claude"
+  ],
+  "dependencies": {
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.7",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

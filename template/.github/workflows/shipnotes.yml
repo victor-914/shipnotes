@@ -1,0 +1,52 @@
+# One workflow for the whole loop:
+#   Monday             → a "Post ideas" Issue with topics from your projects' outcomes
+#   tick / comment     → a draft pull request   (/shipnotes draft 2)
+#   comment on the PR  → a rewrite              (/shipnotes rewrite shorter, end with a question)
+#   any push to the PR → fact-check (status: shipnotes/fact-check)
+#   merge              → moved to published/ and sent to your publishers
+#
+# Secrets (Settings → Secrets and variables → Actions):
+#   CLAUDE_CODE_OAUTH_TOKEN   run `claude setup-token` once; your Claude subscription covers the writing
+#   SHIPNOTES_READ_TOKEN      optional: fine-grained token with read access to private project repos
+#   plus any ${NAME} your shipnotes.config.yaml uses
+name: shipnotes
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC (07:00 in Lagos)
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [edited]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths: ["drafts/**"]
+
+permissions:
+  contents: write # create draft branches, move posts to published/
+  issues: write # topics Issue, replies
+  pull-requests: write # open draft PRs
+  statuses: write # the shipnotes/fact-check status
+
+concurrency:
+  group: shipnotes-${{ github.event.issue.number || github.event.pull_request.number || 'schedule' }}
+  cancel-in-progress: false
+
+jobs:
+  shipnotes:
+    # Skip comments that aren't commands and issue edits outside the topics Issue, before spending a runner.
+    if: >-
+      (github.event_name != 'issue_comment' || startsWith(github.event.comment.body, '/shipnotes')) &&
+      (github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'shipnotes'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: victor-914/shipnotes@v0
+        with:
+          claude-code-oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          read-token: ${{ secrets.SHIPNOTES_READ_TOKEN }}
+        # env:
+        #   CASMIR_OUTCOMES_KEY: ${{ secrets.CASMIR_OUTCOMES_KEY }}

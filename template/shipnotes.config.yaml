@@ -1,0 +1,31 @@
+# Your shipnotes setup. ${NAME} values come from repository secrets, never from this file.
+author:
+  name: Your Name
+  voice: ./VOICE.md
+  # footer: "Drafted from real project data with shipnotes, approved by me."
+
+# Where approved posts live, so the LinkedIn/Substack versions can link to them.
+# site:
+#   post_url: https://your-site.example/blog/{slug}
+
+# Extra versions written next to each draft, ready to paste after merge.
+channels: [linkedin, substack]
+
+# Each project publishes an Outcome Snapshot (see the shipnotes SPEC.md).
+projects:
+  - outcomes:
+      url: https://api.example.com/.well-known/outcomes.json
+      headers: { Authorization: "Bearer ${EXAMPLE_OUTCOMES_KEY}" }
+    repos: [your-name/your-project] # commits in the period become "what shipped"
+
+rules:
+  min_change_pct: 10 # a metric must move at least this much to become a topic
+  min_count: 30 # smaller counts are called an "early signal"
+  max_stories: 5
+
+# Optional: where approved posts go after merge, besides published/ in this repo.
+publish: []
+#  - type: http
+#    url: https://your-site.example/api/posts
+#    headers: { Authorization: "Bearer ${SITE_TOKEN}" }
+#    on_merge: published # or: draft, for a second review on your site

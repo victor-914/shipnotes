@@ -1,0 +1,31 @@
+# shipnotes config. ${NAME} is read from the environment (CI secrets), never written here.
+author:
+  name: Victor
+  voice: ./VOICE.md
+  footer: "Drafted by [shipnotes](https://github.com/victor-914/shipnotes) from real project data, approved by me. Why I work this way: [The Era of Builders](https://vikthurr.com/blog/era-of-builders)."
+
+site:
+  post_url: https://vikthurr.com/blog/{slug}   # where approved posts live; short versions link here
+
+channels: [linkedin, substack]                 # extra versions written next to each draft
+
+projects:
+  - outcomes:
+      file: ./outcomes.json            # or: url: https://api.example.com/.well-known/outcomes.json
+    #   headers: { Authorization: "Bearer ${CASMIR_OUTCOMES_KEY}" }
+    repos: []                          # e.g. [victor-914/casmir_backend] adds commits as "shipped"
+
+llm:
+  provider: claude-code                # your installed, logged-in Claude Code (subscription or API key)
+
+rules:
+  min_change_pct: 10
+  min_count: 30
+  max_stories: 3
+
+publish:
+  - type: markdown
+    dir: ./drafts
+  # - type: http                       # e.g. your own site's draft endpoint
+  #   url: https://vikthurr.com/api/agent/posts
+  #   headers: { Authorization: "Bearer ${SITE_AGENT_TOKEN}" }
