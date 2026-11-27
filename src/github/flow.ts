@@ -273,7 +273,7 @@ export async function publishPull(d: FlowDeps, pr: PullRequest): Promise<FlowRes
     }
 
     const published = { ...file, meta: { ...file.meta, draft: false, published_at: d.today } };
-    const targets = await publishApproved(published, d.loaded.config.publish, d.fetchImpl);
+    const targets = await publishApproved(published, d.loaded.config.publish, d.fetchImpl, path);
     const dest = `${d.loaded.config.github.published_dir}/${basename(path)}`;
     await d.gh.putFile(dest, pr.base.ref, renderDraftFile(published), `shipnotes: publish "${file.meta.title}"`);
     await d.gh.deleteFile(path, pr.base.ref, f.sha, `shipnotes: move "${file.meta.title}" to ${d.loaded.config.github.published_dir}/`);

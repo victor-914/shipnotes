@@ -13,7 +13,7 @@ shipnotes never connects to your database or analytics. Each project publishes o
 Check it with:
 
 ```sh
-npx shipnotes validate outcomes.json
+npx -y github:victor-914/shipnotes validate outcomes.json
 # OK: Casmir Realty, 3 metrics (2 public)
 ```
 
@@ -94,7 +94,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node scripts/outcomes.mjs > outcomes.json
-      - run: npx -y shipnotes validate outcomes.json
+      - run: npx -y github:victor-914/shipnotes validate outcomes.json
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

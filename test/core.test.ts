@@ -91,3 +91,15 @@ describe("factCheck", () => {
     expect(extractNumbers("2,140 visitors, 1.5k views").map((n) => n.value)).toEqual([2140, 1500]);
   });
 });
+
+describe("postSlug", async () => {
+  const { postSlug } = await import("../src/publishers.js");
+  const file = { meta: { title: "A New Title After Editing" }, body: "" } as never;
+  it("comes from the file name, so a retitled post keeps the address its links use", () => {
+    expect(postSlug(file, "drafts/2026-11-27-speed-is-now-a-launch-requirement.md")).toBe("speed-is-now-a-launch-requirement");
+    expect(postSlug(file, "published/2026-11-27-speed-is-now-a-launch-requirement.md")).toBe("speed-is-now-a-launch-requirement");
+  });
+  it("falls back to the title without a path", () => {
+    expect(postSlug(file)).toBe("a-new-title-after-editing");
+  });
+});

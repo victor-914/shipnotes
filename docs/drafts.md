@@ -108,7 +108,7 @@ The fact-check is plain code (`src/factcheck.ts`). It finds every number a reade
 - on every draft and rewrite the model writes. If it fails, the model gets one retry with the bad numbers listed. If it fails again, nothing is saved, and the Issue or PR gets a comment saying so.
 - on every push to a draft PR, reported as the `shipnotes/fact-check` commit status, with a comment listing any failures.
 - again on merge. A merged post that fails isn't moved to `published/` and isn't sent to any publisher.
-- whenever you run `npx shipnotes check <file>…`.
+- whenever you run `npx -y github:victor-914/shipnotes check <file>…`.
 
 ### What is checked
 
@@ -149,8 +149,8 @@ Anything else: a total, an average, an estimate, a projection, a number from mem
 ### `shipnotes check`
 
 ```sh
-npx shipnotes check drafts/*.md
-npx shipnotes check --strict drafts/my-post.md
+npx -y github:victor-914/shipnotes check drafts/*.md
+npx -y github:victor-914/shipnotes check --strict drafts/my-post.md
 ```
 
 | Output | Meaning |

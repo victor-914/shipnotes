@@ -10,7 +10,7 @@ Start with the Actions log: every line shipnotes prints starts with `shipnotes:`
 | `Topics for this period are already in #N` | An open Issue already covers the same period. | Use that Issue, or close it and run the workflow again. |
 | `GET … answered 401/403/404` | Your outcomes endpoint refused the request. | Check the URL, the `headers`, and that the secret is passed in `env:` on the step. |
 | `Config uses ${NAME} but that environment variable is not set` | A secret isn't reaching the step. | Add `NAME: ${{ secrets.NAME }}` under `env:` on the shipnotes step, and check the secret exists in the repo settings. |
-| `Invalid config …` / `… is not a valid outcomes/0.1 snapshot` | The YAML or JSON doesn't match. | The message names the field. Run `npx shipnotes validate outcomes.json` locally. |
+| `Invalid config …` / `… is not a valid outcomes/0.1 snapshot` | The YAML or JSON doesn't match. | The message names the field. Run `npx -y github:victor-914/shipnotes validate outcomes.json` locally. |
 | The workflow didn't run at all | Scheduled workflows only run on the default branch, and GitHub pauses them in repos with no activity for 60 days. | Use **Actions → shipnotes → Run workflow**, and re-enable the workflow if it's been paused. |
 
 ## A command did nothing

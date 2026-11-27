@@ -80,7 +80,7 @@ Never write secret values in the config file itself.
 |---|---|---|---|
 | `post_url` | string containing `{slug}` | none | Where approved posts will live. Channel versions link here, with UTM tags (`utm_source=linkedin`, and so on) so you can count readers from each channel. Without it, channel versions have no link. |
 
-The slug is the post title lowercased, with accents removed, non-alphanumerics turned into `-`, cut to 80 characters.
+The slug is the draft's file name without the date and `.md` (`drafts/2026-12-01-my-post.md` → `my-post`). A new draft's file name is made from its title: lowercased, accents removed, non-alphanumerics turned into `-`, cut to 80 characters. Retitling a draft keeps its file name, so its links keep working; rename the file (and its `.linkedin.md`/`.substack.md`) if you want a new address.
 
 ## `channels`
 

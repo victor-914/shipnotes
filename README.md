@@ -42,15 +42,17 @@ Edit drafts wherever you like: on GitHub, locally, or in Claude at claude.ai/cod
 
 ## Get started
 
-1. **Publish an Outcome Snapshot** for each project: see [SPEC.md](SPEC.md) and [examples/outcomes.json](examples/outcomes.json). Validate it with `npx shipnotes validate outcomes.json`.
+New here? Follow the **[step-by-step tutorial](docs/tutorial.md)** (about 45 minutes). The short version:
+
+1. **Publish an Outcome Snapshot** for each project: see [SPEC.md](SPEC.md) and [examples/outcomes.json](examples/outcomes.json). Validate it with `npx -y github:victor-914/shipnotes validate outcomes.json`.
 2. **Create your content repo** from [`template/`](template), and follow its README (config, voice, one secret).
    Or use the action directly in your own workflow: `uses: victor-914/shipnotes@v0` ([action reference](docs/action.md)).
 3. **Try it locally first**, if you like. shipnotes uses your installed, logged-in [Claude Code](https://docs.claude.com/en/docs/claude-code):
 
    ```sh
-   npx shipnotes topics            # this period's topic ideas
-   npx shipnotes run --dry-run     # a full draft, printed
-   npx shipnotes check drafts/*.md # fact-check any draft file
+   npx -y github:victor-914/shipnotes topics            # this period's topic ideas
+   npx -y github:victor-914/shipnotes run --dry-run     # a full draft, printed
+   npx -y github:victor-914/shipnotes check drafts/*.md # fact-check any draft file
    ```
 
 ## Commands
@@ -84,6 +86,7 @@ shipnotes never asks for or stores your credentials. It runs your own Claude Cod
 
 | | |
 |---|---|
+| **[Tutorial](docs/tutorial.md)** | **Start here: from your project's numbers to a published post, step by step** |
 | [How it works](docs/how-it-works.md) | The pipeline, what the model sees, how stories are ranked |
 | [Config reference](docs/config.md) | Every option in `shipnotes.config.yaml`, publishers, the `http` payload |
 | [Drafts and the fact-check](docs/drafts.md) | The draft file format and exactly which numbers pass |
