@@ -24,7 +24,7 @@ Open draft PRs: `gh pr list --search "Draft: in:title" --state open`. Work on th
 4. Run the fact-check before every commit:
 
    ```sh
-   npx shipnotes check drafts/<file>.md
+   npx -y github:victor-914/shipnotes check drafts/<file>.md
    ```
 
    It must print ✓. If it lists numbers, remove or reword them and run it again.
